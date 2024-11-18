@@ -1,0 +1,4 @@
+2024-11-18 00:33:22.930 +02:00 [INF] Notepad launched independently!
+2024-11-18 00:33:29.937 +02:00 [INF] Notepad launched independently!
+2024-11-18 02:43:58.812 +02:00 [INF] INFO: Input path: ../parjs/site/parjs.vault/Untitled 1.md
+2024-11-18 02:43:58.941 +02:00 [INF] Notepad launched independently!
