@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-static class Programs {
+public static class Programs {
     public static void Open(string fileName, string explicitArgs = "") {
         try {
             Process process = new();

@@ -1,15 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net9.0</TargetFramework>
-    <RootNamespace>open_sesame</RootNamespace>
-    <StartupObject>open_sesame.OpenFirefox</StartupObject>
+    <RootNamespace>Shared</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
+
     <Nullable>enable</Nullable>
     <Nullable>enable</Nullable>
     <Version>1.0.0</Version> <!-- Add this line -->
-    <ApplicationIcon>assets/icon.ico</ApplicationIcon> <!-- Add this line -->
   </PropertyGroup>
 
   <ItemGroup>

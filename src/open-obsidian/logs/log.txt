@@ -1,0 +1,98 @@
+2024-11-18 15:08:55.173 +02:00 [INF] Input path: ../parjs/site/parjs.vault/Untitled 1.md
+2024-11-18 15:08:55.199 +02:00 [INF] Rooted path: C:\codegr\parjs\site\parjs.vault\Untitled 1.md
+2024-11-18 15:08:55.218 +02:00 [INF] Opening obsidian://adv-uri?vault=parjs.vault&filepath=Untitled%201.md&openmode=window
+2024-11-18 15:08:55.294 +02:00 [INF] Notepad launched independently!
+2024-11-18 15:31:29.906 +02:00 [INF] Input path: ../parjs/site/parjs.vault/Untitled 1.md
+2024-11-18 15:31:29.931 +02:00 [INF] Rooted path: C:\codegr\parjs\site\parjs.vault\Untitled 1.md
+2024-11-18 15:31:29.949 +02:00 [INF] Opening obsidian://adv-uri?vault=parjs.vault&filepath=Untitled%201.md&openmode=window
+2024-11-18 15:31:30.018 +02:00 [INF] Notepad launched independently!
+2024-11-18 15:37:00.116 +02:00 [ERR] No arguments provided.
+2024-11-18 15:37:31.701 +02:00 [WRN] No arguments provided, opening Obsidian program.
+2024-11-18 15:37:31.747 +02:00 [ERR] An error occurred: An error occurred trying to start process 'obsidian' with working directory 'C:\codegr\open-sesame\src\open-obsidian\bin\Debug\net9.0'. The system cannot find the file specified.
+2024-11-18 15:38:16.355 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\escaping-script-tag.md
+2024-11-18 15:38:16.377 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\escaping-script-tag.md
+2024-11-18 15:38:16.398 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=escaping-script-tag.md&openmode=window
+2024-11-18 15:38:16.476 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:21:35.755 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\topics\architecture\something-vendor-lockin.md
+2024-11-18 22:21:35.774 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\topics\architecture\something-vendor-lockin.md
+2024-11-18 22:21:35.789 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=something-vendor-lockin.md&openmode=window
+2024-11-18 22:21:35.860 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:22:32.098 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\topics\architecture\alerts-that-work.md
+2024-11-18 22:22:32.121 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\topics\architecture\alerts-that-work.md
+2024-11-18 22:22:32.137 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=alerts-that-work.md&openmode=window
+2024-11-18 22:22:32.212 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:26:22.232 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
+2024-11-18 22:26:22.248 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
+2024-11-18 22:26:22.261 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=weird-ways-to-run-js.md&openmode=window
+2024-11-18 22:26:22.310 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:28:01.031 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
+2024-11-18 22:28:01.073 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
+2024-11-18 22:28:01.091 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=weird-ways-to-run-js.md&openmode=window
+2024-11-18 22:28:01.256 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:35:30.020 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\SCRAPS_every-type-of-iframe.md
+2024-11-18 22:35:30.037 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\SCRAPS_every-type-of-iframe.md
+2024-11-18 22:35:30.052 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=SCRAPS_every-type-of-iframe.md&openmode=window
+2024-11-18 22:35:30.127 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:35:45.784 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\SCRAPS_every-type-of-iframe.md
+2024-11-18 22:35:45.810 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\SCRAPS_every-type-of-iframe.md
+2024-11-18 22:35:45.831 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=SCRAPS_every-type-of-iframe.md&openmode=window
+2024-11-18 22:35:45.967 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:55:51.343 +02:00 [INF] Input path: C:\codegr\__blog\Intro.md
+2024-11-18 22:55:51.369 +02:00 [INF] Rooted path: C:\codegr\__blog\Intro.md
+2024-11-18 22:55:51.451 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:56:04.640 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\escaping-script-tag.md
+2024-11-18 22:56:04.656 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\escaping-script-tag.md
+2024-11-18 22:56:04.670 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=escaping-script-tag.md&openmode=window
+2024-11-18 22:56:04.718 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:56:51.233 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\escaping-script-tag.md
+2024-11-18 22:56:51.250 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\escaping-script-tag.md
+2024-11-18 22:56:51.265 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=escaping-script-tag.md&openmode=window
+2024-11-18 22:56:51.311 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:56:58.731 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
+2024-11-18 22:56:58.751 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
+2024-11-18 22:56:58.767 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=weird-ways-to-run-js.md&openmode=window
+2024-11-18 22:56:58.817 +02:00 [INF] Notepad launched independently!
+2024-11-18 22:58:12.126 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\SCRAPS_external-internal-iframes-2.md
+2024-11-18 22:58:12.148 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\SCRAPS_external-internal-iframes-2.md
+2024-11-18 22:58:12.164 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=SCRAPS_external-internal-iframes-2.md&openmode=window
+2024-11-18 22:58:12.213 +02:00 [INF] Notepad launched independently!
+2024-11-18 23:04:18.486 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\bits-and-bytes\SRAPS_whats-a-runtime-2.md
+2024-11-18 23:04:18.502 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\bits-and-bytes\SRAPS_whats-a-runtime-2.md
+2024-11-18 23:04:18.516 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=SRAPS_whats-a-runtime-2.md&openmode=true
+2024-11-18 23:04:18.564 +02:00 [INF] Notepad launched independently!
+2024-11-18 23:04:54.581 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\SCRAPS_iframes-architecture.md
+2024-11-18 23:04:54.599 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\SCRAPS_iframes-architecture.md
+2024-11-18 23:04:54.613 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=SCRAPS_iframes-architecture.md&openmode=true
+2024-11-18 23:04:54.661 +02:00 [INF] Notepad launched independently!
+2024-11-19 01:15:20.477 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\what-are-iframes.post\what-are-iframes.md
+2024-11-19 01:15:20.496 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\web.topic\iframes.topic\what-are-iframes.post\what-are-iframes.md
+2024-11-19 01:15:20.520 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=what-are-iframes.md&openmode=true
+2024-11-19 01:15:20.570 +02:00 [INF] Notepad launched independently!
+2024-11-19 01:16:44.999 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\architecture.topic\the-medium.post\the-medium.md
+2024-11-19 01:16:45.015 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\architecture.topic\the-medium.post\the-medium.md
+2024-11-19 01:16:45.033 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=the-medium.md&openmode=true
+2024-11-19 01:16:45.082 +02:00 [INF] Notepad launched independently!
+2024-11-19 01:32:05.224 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\architecture.topic\Untitled.md
+2024-11-19 01:32:05.246 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\architecture.topic\Untitled.md
+2024-11-19 01:32:05.263 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=Untitled.md&openmode=true
+2024-11-19 01:32:05.314 +02:00 [INF] Notepad launched independently!
+2024-11-19 12:25:27.298 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\architecture.topic\dont-http.post\dont-http.md
+2024-11-19 12:25:27.329 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\architecture.topic\dont-http.post\dont-http.md
+2024-11-19 12:25:27.343 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=dont-http.md&openmode=true
+2024-11-19 12:25:27.389 +02:00 [INF] Notepad launched independently!
+2024-11-19 12:32:46.131 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\architecture.topic\whats-a-library.post\whats-a-ibrary.md
+2024-11-19 12:32:46.151 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\architecture.topic\whats-a-library.post\whats-a-ibrary.md
+2024-11-19 12:32:46.165 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=whats-a-ibrary.md&openmode=true
+2024-11-19 12:32:46.210 +02:00 [INF] Notepad launched independently!
+2024-11-20 16:43:39.300 +02:00 [WRN] No arguments provided, opening Obsidian program.
+2024-11-20 16:43:39.349 +02:00 [ERR] An error occurred: An error occurred trying to start process 'obsidian' with working directory 'C:\Users\Greg'. The system cannot find the file specified.
+2024-11-20 17:06:21.229 +02:00 [INF] Input path: C:\codegr\__blog\asd.md
+2024-11-20 17:06:21.245 +02:00 [INF] Rooted path: C:\codegr\__blog\asd.md
+2024-11-20 17:06:21.310 +02:00 [INF] Notepad launched independently!
+2024-11-20 17:35:09.092 +02:00 [INF] Input path: C:\codegr\__blog\Intro.md
+2024-11-20 17:35:09.109 +02:00 [INF] Rooted path: C:\codegr\__blog\Intro.md
+2024-11-20 17:35:09.179 +02:00 [INF] Notepad launched independently!
+2024-11-20 17:47:18.313 +02:00 [INF] Input path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
+2024-11-20 17:47:18.329 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
+2024-11-20 17:47:18.343 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=weird-ways-to-run-js.md&openmode=true
+2024-11-20 17:47:18.392 +02:00 [INF] Notepad launched independently!

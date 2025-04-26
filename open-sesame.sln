@@ -3,37 +3,42 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "open-obsidian", "open-obsidian\open-obsidian.csproj", "{881F843C-22E3-4398-882C-F9671D31ECB2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45DE0626-A791-4CFC-B4A6-5A8D28165657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "open-firefox", "open-firefox\open-firefox.csproj", "{69290553-EA62-4C84-933C-48FD733B95A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shared", "src\shared\shared.csproj", "{0CB2323E-B1A3-47E4-9EC4-D0F2187A3D3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "open-obsidian", "src\open-obsidian\open-obsidian.csproj", "{B5E69401-959F-449E-9967-92A93FE54B44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "open-firefox", "src\open-firefox\open-firefox.csproj", "{20CAC3CE-AD1E-481A-87E6-7D98F6D50395}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A94CCACD-833D-4E06-899C-0C8BDD901C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A94CCACD-833D-4E06-899C-0C8BDD901C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A94CCACD-833D-4E06-899C-0C8BDD901C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A94CCACD-833D-4E06-899C-0C8BDD901C30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA45EBED-851B-443E-BCD9-591A681298B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA45EBED-851B-443E-BCD9-591A681298B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA45EBED-851B-443E-BCD9-591A681298B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA45EBED-851B-443E-BCD9-591A681298B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{881F843C-22E3-4398-882C-F9671D31ECB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{881F843C-22E3-4398-882C-F9671D31ECB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{881F843C-22E3-4398-882C-F9671D31ECB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{881F843C-22E3-4398-882C-F9671D31ECB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{69290553-EA62-4C84-933C-48FD733B95A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{69290553-EA62-4C84-933C-48FD733B95A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{69290553-EA62-4C84-933C-48FD733B95A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{69290553-EA62-4C84-933C-48FD733B95A7}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E6EF202B-1A8F-4179-BBCD-806693FED432}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CB2323E-B1A3-47E4-9EC4-D0F2187A3D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB2323E-B1A3-47E4-9EC4-D0F2187A3D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB2323E-B1A3-47E4-9EC4-D0F2187A3D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB2323E-B1A3-47E4-9EC4-D0F2187A3D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5E69401-959F-449E-9967-92A93FE54B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E69401-959F-449E-9967-92A93FE54B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E69401-959F-449E-9967-92A93FE54B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E69401-959F-449E-9967-92A93FE54B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CAC3CE-AD1E-481A-87E6-7D98F6D50395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CAC3CE-AD1E-481A-87E6-7D98F6D50395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CAC3CE-AD1E-481A-87E6-7D98F6D50395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CAC3CE-AD1E-481A-87E6-7D98F6D50395}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CB2323E-B1A3-47E4-9EC4-D0F2187A3D3E} = {45DE0626-A791-4CFC-B4A6-5A8D28165657}
+		{B5E69401-959F-449E-9967-92A93FE54B44} = {45DE0626-A791-4CFC-B4A6-5A8D28165657}
+		{20CAC3CE-AD1E-481A-87E6-7D98F6D50395} = {45DE0626-A791-4CFC-B4A6-5A8D28165657}
 	EndGlobalSection
 EndGlobal

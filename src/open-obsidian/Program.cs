@@ -4,7 +4,8 @@ using OpenSesame;
 static class OpenInObsidian {
     static void Main(string[] args) {
         if (args.Length == 0) {
-            Logger.Error("No arguments provided.");
+            Logger.Warn("No arguments provided, opening Obsidian program.");
+            Programs.Open("obsidian");
             return;
         }
         var path = Paths.SplatPath(args);

@@ -11,7 +11,7 @@ namespace OpenSesame {
             }
             var justFileName = Path.GetFileName(file);
             var escaped = Uri.EscapeDataString(justFileName);
-            return $"obsidian://adv-uri?vault={Uri.EscapeDataString(justName)}&filepath={escaped}&openmode=window";
+            return $"obsidian://adv-uri?vault={Uri.EscapeDataString(justName)}&filepath={escaped}&openmode=true";
         }
 
         public static string GetOpenUrl(string vault) {
