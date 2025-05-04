@@ -96,3 +96,10 @@
 2024-11-20 17:47:18.329 +02:00 [INF] Rooted path: C:\codegr\__blog\gregros.dev.vault\_ACTIVE\weird-ways-to-run-js.md
 2024-11-20 17:47:18.343 +02:00 [INF] Opening obsidian://adv-uri?vault=gregros.dev.vault&filepath=weird-ways-to-run-js.md&openmode=true
 2024-11-20 17:47:18.392 +02:00 [INF] Notepad launched independently!
+2025-04-26 13:57:02.567 +03:00 [INF] Input path: ../parjs/site/parjs.vault/Untitled 1.md
+2025-04-26 13:57:02.601 +03:00 [INF] Rooted path: C:\codegr\parjs\site\parjs.vault\Untitled 1.md
+2025-04-26 14:11:57.111 +03:00 [INF] Input path: ../parjs/site/parjs.vault/Untitled 1.md
+2025-04-26 14:11:57.144 +03:00 [INF] Rooted path: C:\codegr\parjs\site\parjs.vault\Untitled 1.md
+2025-04-26 14:13:37.332 +03:00 [WRN] No arguments provided, opening Obsidian program.
+2025-04-26 14:13:37.349 +03:00 [INF] Opening obsidian with arguments: 
+2025-04-26 14:13:37.378 +03:00 [ERR] An error occurred: An error occurred trying to start process 'obsidian' with working directory 'C:\codegr\open-sesame'. The system cannot find the file specified.

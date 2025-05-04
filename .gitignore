@@ -44,3 +44,5 @@ $RECYCLE.BIN/
 # DotNet SDK 9 specific files
 *.dotnet_tool
 .dotnet_tool/
+log.txt
+logs/
