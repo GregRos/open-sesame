@@ -1,0 +1,5 @@
+<Project>
+  <ItemGroup>
+    <PackageReference Include="Zio" Version="0.21.0" />
+  </ItemGroup>
+</Project>

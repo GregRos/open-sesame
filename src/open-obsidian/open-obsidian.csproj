@@ -8,7 +8,6 @@
     <StartupObject>OpenInObsidian</StartupObject>
     <ApplicationIcon>assets/icon.ico</ApplicationIcon>
     <Nullable>enable</Nullable>
-    <Nullable>enable</Nullable>
     <Version>1.0.0</Version> <!-- Add this line -->
   </PropertyGroup>
   <ItemGroup>

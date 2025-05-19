@@ -11,10 +11,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 
-# VS Code files
-.vscode/
-.vscode/*
-
 # User-specific files
 *.rsuser
 *.suo
@@ -35,14 +31,10 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# VS Code extensions
-.vscode/extensions.json
-.vscode/settings.json
-.vscode/tasks.json
-.vscode/launch.json
-
 # DotNet SDK 9 specific files
 *.dotnet_tool
 .dotnet_tool/
 log.txt
 logs/
+
+.fake
