@@ -37,30 +37,6 @@ type DivOverload = DivOverload
         static member inline div(a: ^T, b: ^T) : ^R =
             ((^T or ^S): (static member (/): ^T * ^T -> ^R) (a, b))
 
-        static member divMany(origin: FileSystemEntry, tail: string) : FileSystemEntry seq = origin.glob tail
-
-        static member divMany(origin: FileSystemEntry, tail: UPath) : FileSystemEntry seq = origin.glob tail
-
-        // FileSystemEntry left
-        static member divMany(origin: FileSystemEntry, tail: string seq) : FileSystemEntry seq =
-            tail |> Seq.collect (fun t -> origin.glob t)
-
-        static member divMany(origin: FileSystemEntry, tail: UPath seq) : FileSystemEntry seq =
-            tail |> Seq.collect (fun t -> origin.glob t)
-
-        // FileSystemEntry seq left
-        static member divMany(origins: #seq<FileSystemEntry>, tail: string) : FileSystemEntry seq =
-            origins |> Seq.collect (fun o -> o.glob tail)
-
-        static member divMany(origins: #seq<#FileSystemEntry>, tail: UPath) : FileSystemEntry seq =
-            origins |> Seq.collect (fun o -> o.glob tail)
-
-        static member divMany(origins: #seq<#FileSystemEntry>, tail: seq<string>) : FileSystemEntry seq =
-            origins |> Seq.collect (fun o -> tail |> Seq.collect (fun t -> o.glob t))
-
-        static member divMany(origins: #seq<#FileSystemEntry>, tail: seq<UPath>) : FileSystemEntry seq =
-            origins |> Seq.collect (fun o -> tail |> Seq.collect (fun t -> o.glob t))
-
         static member inline _divMany(origin: FileSystemEntry, tail: ^X) : FileSystemEntry seq =
             ((^X or DivOverload): (static member divMany: FileSystemEntry * ^X -> FileSystemEntry seq) (origin, tail))
 
@@ -72,9 +48,3 @@ let inline (/?) (origin: ^T) (path: ^S) : ^R =
 
 let inline (/??) (origin: ^T) (tail: ^S) : FileSystemEntry seq =
     ((^T or DivOverload): (static member divMany: ^T * ^S -> FileSystemEntry seq) (origin, tail))
-
-let fs = new PhysicalFileSystem()
-let fl = UPath("").entry fs
-let fl2 = fl /? "test" /? "a"
-
-let fl3 = fl /?? "test" /?? "."

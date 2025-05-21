@@ -43,7 +43,7 @@ type UPath with
         seq {
             let mutable current = this.parent
 
-            while not current.isRoot || current.IsEmpty do
+            while not (current.isRoot && current.IsEmpty) do
                 yield current
                 current <- current.parent
         }

@@ -5,18 +5,18 @@ module Shared.Zio.FileSystem
 
 open Zio
 open Zio.FileSystems
-open Microsoft.Extensions.FileSystemGlobbing
 open Shared.Zio.UPath
 open System.Text.RegularExpressions
 open FSharp.Text.RegexProvider
+open GlobExpressions
 
 type Disk() =
     inherit PhysicalFileSystem()
 
-type DriveLetterRegex = Regex< @"^(?<DriveLetter>[a-zA-Z]):\\" >
+type DriveLetterRegex = Regex< @"^(?<DriveLetter>[a-zA-Z]):[\\|/]" >
 
 type FileSystem with
-    member this.entry(path: UPath) : FileSystemEntry = this.GetFileSystemEntry path
+    member this.entry(path: UPath) : FileSystemEntry = path |> string |> this.entry
 
     member this.entry(path: string) : FileSystemEntry =
         DriveLetterRegex()
@@ -29,7 +29,7 @@ type FileSystem with
             )
         |> UPath
         |> (fun x -> x.ToAbsolute())
-        |> this.entry
+        |> this.GetFileSystemEntry
 
 type FileSystemEntry with
     member this.isRoot: bool = this.Path.isRoot
@@ -52,6 +52,12 @@ type FileSystemEntry with
         match this.FileSystem.TryGetFileSystemEntry newPath with
         | null -> None
         | entry -> Some entry
+
+    member this.tryGoAll(paths: string seq) : FileSystemEntry seq =
+        paths |> Seq.map (fun path -> this.tryGo path) |> Seq.choose id
+
+    member this.tryGoAll(paths: UPath seq) : FileSystemEntry seq =
+        paths |> Seq.map (fun path -> this.tryGo path) |> Seq.choose id
 
     member this.ext: string = this.Path.ext
 
@@ -83,36 +89,6 @@ type FileSystemEntry with
 
     member this.isDeepChildOf(parent: UPath) : bool = this.Path.isInDeep parent
 
-    member this.glob(patterns: UPath seq) : seq<FileSystemEntry> =
-        patterns |> Seq.map (fun p -> p |> string |> this.glob) |> Seq.concat
 
-    member this.glob(path: UPath) : seq<FileSystemEntry> = this.glob (path.ToString())
-
-    member this.glob(pattern: string) : seq<FileSystemEntry> =
-        let matcher = Matcher()
-        let matcher = matcher.AddInclude pattern
-        let paths = matcher.GetResultsInFullPath(this.Path.ToString())
-
-        paths |> Seq.map UPath |> Seq.map (fun x -> x.entry this.FileSystem)
-
-    member this.glob(patterns: string list) : seq<FileSystemEntry> =
-        let matcher = Matcher()
-
-        let included =
-            patterns
-            |> List.filter (fun p -> not (p.StartsWith "!"))
-            |> List.map (fun p -> p.TrimStart('!'))
-
-        matcher.AddIncludePatterns included
-
-        let excluded =
-            patterns
-            |> List.filter (fun p -> p.StartsWith "!")
-            |> List.map (fun p -> p.TrimStart('!'))
-
-        matcher.AddExcludePatterns excluded
-        let paths = matcher.GetResultsInFullPath(this.Path.ToString())
-
-        paths |> Seq.map UPath |> Seq.map (fun x -> x.entry this.FileSystem)
 
 let a = UPath().entry (new PhysicalFileSystem())
