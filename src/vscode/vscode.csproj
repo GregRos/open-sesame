@@ -12,7 +12,6 @@
     Add this line -->
     <PublishSingleFile>
       true</PublishSingleFile>
-    <SelfContained>true</SelfContained>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishTrimmed>false</PublishTrimmed> <!-- true = smaller exe but risky -->
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile> <!--

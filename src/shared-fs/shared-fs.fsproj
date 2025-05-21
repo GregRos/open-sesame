@@ -2,16 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-
+    <RootNamespace>shared_fs</RootNamespace>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="src\**\*.fs"/>
-
+    <Compile Include="Core\SeqExt.fs" />
+    <Compile Include="Zio\UPathExt.fs" />
+    <Compile Include="Zio\FsEntryExt.fs" />
+    <Compile Include="Zio\DivOperator.fs" />
+    <Compile Include="Flurl\Url.fs" />
+    <Compile Include="Console\Console.fs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Flurl" Version="4.0.0" />
+    <PackageReference Include="FSharp.Text.RegexProvider" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="9.0.5" />
+    <PackageReference Include="Shmuelie.Zio.Glob" Version="1.0.0" />
     <PackageReference Include="Zio" Version="0.21.0" />
   </ItemGroup>
 

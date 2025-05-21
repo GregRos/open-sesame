@@ -2,18 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <RootNamespace>open_obsidian_fs</RootNamespace>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
-    <RootNamespace>open_obsidian</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <StartupObject>OpenInObsidian</StartupObject>
     <ApplicationIcon>assets/icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="src/**/*.fs" />
+    <Compile Include="src/Library.fs" />
+    <Compile Include="src/Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\shared-fs\shared-fs.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flurl" Version="4.0.0" />
+    <PackageReference Include="FSharp.Text.RegexProvider" Version="2.1.0" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@
       "label": "build",
       "command": "dotnet",
       "type": "process",
-      "args": ["build", "${workspaceFolder}"],
+      "args": ["build", "${workspaceFolder}", "-c", "Debug", "--no-restore"],
       "problemMatcher": "$msCompile",
       "group": {
         "kind": "build",

@@ -13,6 +13,16 @@
       "console": "integratedTerminal"
     },
     {
+      "name": ".NET Launch FS",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/open-obsidian-fs/bin/Debug/net9.0/open-obsidian-fs.exe",
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    },
+    {
       "name": ".NET Core Attach",
       "type": "coreclr",
       "request": "attach",

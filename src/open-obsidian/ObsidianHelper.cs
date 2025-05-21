@@ -18,6 +18,11 @@ namespace OpenSesame {
             return $"obsidian://adv-uri?vault={Uri.EscapeDataString(vault)}";
         }
 
+        /// <summary>
+        /// sdf 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>sdfdsf</returns>
         public static string? GetVaultFromPath(string path) {
             static string? TryGetFolderAsVault(string folder) {
                 var gitFolder = Paths.GetSpecialFolderFrom(folder, ".git");
