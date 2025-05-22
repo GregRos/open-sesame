@@ -8,3 +8,5 @@ At some point, you have to come to terms that if you want to build some cool too
 And if you want to muck about with Win32 APIs, .NET is the best language to write that `.exe` in.
 
 This repository contains a bunch of tools like that. Most of them just launch other programs.,
+
+This particular set of “scripts” is written in F#, which is my favorite .NET language. Even though I also feel like it shot itself in the foot since day 1. 
