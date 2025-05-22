@@ -7,10 +7,9 @@
       "request": "launch",
       "preLaunchTask": "build (Debug)",
       "program": "${workspaceFolder}/bin/open-markdown/Debug/net9.0-windows/open-markdown.exe",
-      "args": ["C:\\codegr\\omnea-kata\\README.md"],
+      "args": ["C:\\codegr\\__docs.vault\\Untitled.md"],
       "cwd": "${workspaceFolder}",
-      "stopAtEntry": false,
-      "console": "integratedTerminal"
+      "stopAtEntry": false
     },
     {
       "name": ".NET Core Attach",

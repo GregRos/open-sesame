@@ -30,6 +30,18 @@ let docsVault = UPath "C:\\codegr\\__docs.vault"
 [<STAThread>]
 [<EntryPoint>]
 let main argv =
+    let createHardLink (path: UPath) =
+        let file = path.entry fs :?> FileEntry
+
+        let targetName =
+            match file.Name with
+            | "README.md" -> $"{file.Parent.Name}.md"
+            | x -> x
+
+        let target = docsVault / targetName
+        file.hardLinkTo target
+        target.entry fs
+
     let doOpen (path: UPath) =
         let cmd = OpenFileCommand.Create(path, getOpenMode path)
         let command = cmd.ProduceCommand()
@@ -41,7 +53,11 @@ let main argv =
         let splat = argv |> String.concat " "
         let path = UPath splat
 
-        doOpen path
+        if Keyboard.IsKeyDown Key.LeftAlt && not (path.isDeepChildOf docsVault) then
+            createHardLink path |> fun x -> x.Path |> doOpen
+        else
+            doOpen path
+
         0
 
     doThing argv

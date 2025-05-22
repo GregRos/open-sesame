@@ -9,6 +9,7 @@ open Shared.Zio.UPath
 open System.IO
 open Shared.Zio
 open Shared.Internal.Win32
+open Shared
 
 let (|FileEntry|DirectoryEntry|) (entry: FileSystemEntry) =
     match entry with
@@ -16,6 +17,7 @@ let (|FileEntry|DirectoryEntry|) (entry: FileSystemEntry) =
     | :? DirectoryEntry as dir -> DirectoryEntry dir
     | _ -> failwith "Unknown file system entry type"
 
+let logger = Loggers.CreateLogger "FileSystem"
 
 type FileSystem with
     member this.entry(path: UPath) : FileSystemEntry = path |> string |> this.entry
@@ -31,6 +33,8 @@ type FileSystemEntry with
         |> Seq.map (fun p -> p.entry this.FileSystem :?> DirectoryEntry)
 
     member this.go(path: string) : FileSystemEntry = this.go (UPath path)
+
+    member this.winPath: string = this.Path.winPath
 
     member this.go(path: UPath) : FileSystemEntry =
         let newPath = UPath.Combine(this.Path, path)
@@ -63,16 +67,25 @@ type FileSystemEntry with
     member this.fs = this.FileSystem
 
 
-    member this.isChildOf(parent: UPath) : bool = this.Path.isIn parent
+    member this.isChildOf(parent: UPath) : bool = this.Path.isDirectChildOf parent
 
-    member this.isDeepChildOf(parent: UPath) : bool = this.Path.isInDeep parent
+    member this.isDeepChildOf(parent: UPath) : bool = this.Path.isDeepChildOf parent
 
 type FileEntry with
+    member this.isHardLinkOf(other: FileEntry) : bool = this.isHardLinkOf other.Path
+
+    member this.isHardLinkOf(path: UPath) : bool =
+        match path.tryEntry this.fs with
+        | None -> false
+        | _ when path = this.Path -> true
+        | Some(FileEntry target) -> areHardLinks target.winPath this.winPath
+        | _ -> false
+
     member this.hardLinkTo(path: UPath) =
-        if this.Path = path then
-            failwith $"Cannot hardlink to self: {this.Path} -> {path}"
-
-        if path.IsRelative then
-            failwith $"Path must be absolute: {path}"
-
-        createHardLink (this.Path.winPath, path.winPath)
+        match path.tryEntry this.fs with
+        | _ when path = this.Path -> failwith $"Tried to hardlink {this.Path} to itself"
+        | Some(FileEntry target) when this.isHardLinkOf target.Path ->
+            logger.debug $"Already a hardlink: {this.Path} -> {target.Path}"
+        | Some(FileEntry target) -> failwith $"Cannot hardlink to existing file: {this.Path} -> {target.Path}"
+        | Some(DirectoryEntry _) -> failwith $"Cannot hardlink to directory: {this.Path} -> {path}"
+        | None -> createHardLink (this.winPath, path.winPath)

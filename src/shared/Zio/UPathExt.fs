@@ -58,9 +58,9 @@ type UPath with
         else
             this.GetDirectory()
 
-    member this.isIn(parent: UPath) : bool = this.IsInDirectory(parent, false)
+    member this.isDirectChildOf(parent: UPath) : bool = this.IsInDirectory(parent, false)
 
-    member this.isInDeep(parent: UPath) : bool = this.IsInDirectory(parent, true)
+    member this.isDeepChildOf(parent: UPath) : bool = this.IsInDirectory(parent, true)
 
 
     member this.winPath: string =
