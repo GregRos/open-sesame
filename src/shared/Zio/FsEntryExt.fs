@@ -7,10 +7,15 @@ open Zio
 open Zio.FileSystems
 open Shared.Zio.UPath
 open System.IO
+open Shared.Zio
+open Shared.Internal.Win32
 
+let (|FileEntry|DirectoryEntry|) (entry: FileSystemEntry) =
+    match entry with
+    | :? FileEntry as file -> FileEntry file
+    | :? DirectoryEntry as dir -> DirectoryEntry dir
+    | _ -> failwith "Unknown file system entry type"
 
-type Disk() =
-    inherit PhysicalFileSystem()
 
 type FileSystem with
     member this.entry(path: UPath) : FileSystemEntry = path |> string |> this.entry
@@ -20,18 +25,6 @@ type FileSystem with
 
 type FileSystemEntry with
     member this.isRoot: bool = this.Path.isRoot
-
-    member this.isSymLink: bool =
-        match this with
-        | :? FileEntry as file -> file.Attributes.HasFlag FileAttributes.ReparsePoint
-        | :? DirectoryEntry as dir -> dir.Attributes.HasFlag FileAttributes.ReparsePoint
-        | _ -> false
-
-    member this.tryLinkTarget =
-        match this with
-        | :? FileEntry as file -> File.ResolveLinkTarget(file.Path.winPath, true) |> Some
-        | :? DirectoryEntry as dir -> Directory.ResolveLinkTarget(dir.Path.winPath, true) |> Some
-        | _ -> None
 
     member this.walkUp =
         this.Path.walkUp
@@ -44,9 +37,6 @@ type FileSystemEntry with
         this.FileSystem.GetFileSystemEntry newPath
 
     member this.tryGo(path: string) : FileSystemEntry option = this.tryGo (UPath path)
-
-
-
 
     member this.tryGo(path: UPath) : FileSystemEntry option =
         let newPath = UPath.Combine(this.Path, path)
@@ -65,28 +55,24 @@ type FileSystemEntry with
 
     member this.isFile: bool =
         match this with
-        | :? FileEntry -> true
+        | FileEntry _ -> true
         | _ -> false
 
     member this.isDir: bool = not this.isFile
 
-    member this.asFile =
-        match this with
-        | x when x.isFile -> x :?> FileEntry |> Some
-        | _ -> None
-
-    member this.asDir =
-        match this with
-        | x when x.isDir -> x :?> DirectoryEntry |> Some
-        | _ -> None
-
     member this.fs = this.FileSystem
 
-    member this.dir =
-        match this.asDir with
-        | Some dir -> dir
-        | None -> this.Parent
 
     member this.isChildOf(parent: UPath) : bool = this.Path.isIn parent
 
     member this.isDeepChildOf(parent: UPath) : bool = this.Path.isInDeep parent
+
+type FileEntry with
+    member this.hardLinkTo(path: UPath) =
+        if this.Path = path then
+            failwith $"Cannot hardlink to self: {this.Path} -> {path}"
+
+        if path.IsRelative then
+            failwith $"Path must be absolute: {path}"
+
+        createHardLink (this.Path.winPath, path.winPath)

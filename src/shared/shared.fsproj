@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Win32\IO.fs" />
     <Compile Include="Logging\Logger.fs" />
     <Compile Include="Core\StringExt.fs" />
     <Compile Include="Core\SeqExt.fs" />
     <Compile Include="Zio\UPathExt.fs" />
     <Compile Include="Zio\FsEntryExt.fs" />
     <Compile Include="Zio\DivOperator.fs" />
-    <Compile Include="Zio\Globbing.fs" />
     <Compile Include="Flurl\Url.fs" />
     <Compile Include="Zio\Tests.fs" />
     <Compile Include="Process\Open.fs" />

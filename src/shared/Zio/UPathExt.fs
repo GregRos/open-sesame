@@ -62,6 +62,7 @@ type UPath with
 
     member this.isInDeep(parent: UPath) : bool = this.IsInDirectory(parent, true)
 
+
     member this.winPath: string =
         MntRootRegex()
             .TypedReplace(

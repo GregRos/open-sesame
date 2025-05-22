@@ -72,9 +72,8 @@ type OpenFileCommand =
 
         match target.tryEntry fs with
         | None -> failwith $"Path not found: {target}"
-        | Some(:? FileEntry) -> ()
-        | Some(:? DirectoryEntry) -> failwith $"Path is a directory: {target}"
-        | Some _ -> failwith $"Path is not a file: {target}"
+        | Some(FileEntry _) -> ()
+        | Some(DirectoryEntry _) -> failwith $"Path is a directory: {target}"
 
 
         let obsidianParentVault = SpecialDir.findObsidianVault target

@@ -19,8 +19,8 @@ let getOpenMode (file: UPath) =
     match file with
     | KeyDown Key.LeftCtrl -> NewTab
     | KeyDown Key.LeftShift -> NewWindow
-    | :? FileEntry as file when file.Length = 0 -> NewWindow
-    | :? FileEntry -> Default
+    | FileEntry file when file.Length = 0 -> NewWindow
+    | FileEntry _ -> Default
     | _ -> Default
 
 let docsVault = UPath "C:\\codegr\\__docs.vault"
