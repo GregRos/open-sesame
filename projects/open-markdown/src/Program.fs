@@ -26,6 +26,10 @@ let getOpenMode (file: UPath) =
 let docsVault = UPath "C:\\codegr\\__docs.vault"
 
 
+let getReadmeLinkName (file: FileEntry) =
+    match file.Name with
+    | "README.md" -> $"{file.Parent.Name}.README.md"
+    | x -> x
 
 [<STAThread>]
 [<EntryPoint>]
@@ -35,7 +39,7 @@ let main argv =
 
         let targetName =
             match file.Name with
-            | "README.md" -> $"{file.Parent.Name}.md"
+            | "README.md" -> getReadmeLinkName file
             | x -> x
 
         let target = docsVault / targetName
