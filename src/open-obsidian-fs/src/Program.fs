@@ -1,4 +1,4 @@
-module OpenObsidian.Folders
+module OpenSesame.Folders
 
 open Flurl
 open Zio
@@ -7,35 +7,18 @@ open Shared.Zio
 open Shared
 open Fake.IO
 open Fake.IO.FileSystemOperators
-
-type SpecialDir =
-    | Obsidian of entry: FileSystemEntry
-    | Git of entry: FileSystemEntry
+open System
 
 [<EntryPoint>]
 let main argv =
-    let fs = new Disk()
-    printfn "Hello from F#"
+    let doThing (argv: string array) =
+        printfn $"""Arguments: {argv.Length} {argv |> String.concat ", "}"""
+        let splat = argv |> String.concat " "
+        let path = UPath splat
+        let cmd = OpenFileCommand.Create path
+        let command = cmd.ProduceCommand()
+        let prc = command.Create()
+        prc.Start() |> ignore
+        0
 
-    let checkForSpecialDirs (file: FileSystemEntry) =
-        printfn "scanSpecialDirsFrom: %A" file
-
-        match [ ".obsidian"; ".git" ] |> List.map (fun subpath -> file.tryGo subpath) with
-        | Some obsidian :: _ -> Some(Obsidian obsidian)
-        | _ :: Some git :: [] -> Some(Git git)
-        | _ -> None
-
-    let paths =
-        UPath(@"C:\codegr\parjs.wiki\parsers\int.md").walkUp
-        |> Seq.map fs.entry
-        |> Seq.map (fun x ->
-            printfn "walkUp: %A" x
-            x)
-        |> Seq.map checkForSpecialDirs
-        |> Seq.tryPick id
-
-    match paths with
-    | Some dir -> printfn "Found special dir: %A" dir
-    | None -> printfn "No special dir found"
-
-    0
+    doThing [| @"C:\codegr\parjs.wiki\parsers\int.md" |]

@@ -2,9 +2,14 @@
 module Shared.Zio.UPath
 
 #nowarn "77"
+
 open Zio
+open System.IO
+open System.Text.RegularExpressions
+open FSharp.Text.RegexProvider
 
-
+type DriveLetterRegex = Regex< @"^(?<DriveLetter>[a-zA-Z]):[\\|/]" >
+type MntRootRegex = Regex< @"^/mnt/(?<DriveLetter>[a-zA-Z])/" >
 
 type UPath with
 
@@ -15,9 +20,26 @@ type UPath with
 
     member this.entry(fs: IFileSystem) : FileSystemEntry = fs.GetFileSystemEntry this
 
+    member this.norm =
+        DriveLetterRegex()
+            .TypedReplace(
+                this.ToString(),
+                fun m ->
+                    let driveLetter = m.Groups.["DriveLetter"].Value.ToLowerInvariant()
+                    let driveLetter = $"/mnt/{driveLetter}/"
+                    driveLetter
+            )
+        |> UPath
+
     member this.ext: string =
         let ext = this.GetExtensionWithDot()
         ext
+
+    member this.relativeTo(other: UPath) =
+        let myPath = this.winPath
+        let otherPath = other.winPath
+        let result = Path.GetRelativePath(otherPath, myPath)
+        UPath result |> fun x -> x.norm
 
     member this.isRoot: bool =
         if not this.IsAbsolute then
@@ -28,22 +50,32 @@ type UPath with
             | [ "mnt"; x ] when x.Length = 1 -> true
             | _ -> false
 
-    member this.parent: UPath = this.GetDirectory()
+    member this.parent: UPath =
+        if this.isRoot || this.IsEmpty then
+            this
+        else
+            this.GetDirectory()
 
     member this.isIn(parent: UPath) : bool = this.IsInDirectory(parent, false)
 
     member this.isInDeep(parent: UPath) : bool = this.IsInDirectory(parent, true)
 
-    member this.hasExtOf(exts: string list) : bool =
-        let ext = this.ext
-        exts |> List.exists (fun e -> e = ext)
-
+    member this.winPath: string =
+        MntRootRegex()
+            .TypedReplace(
+                this.ToString(),
+                fun m ->
+                    let driveLetter = m.Groups.["DriveLetter"].Value.ToUpperInvariant()
+                    let driveLetter = $"{driveLetter}:\\"
+                    driveLetter
+            )
+            .Replace("/", "\\")
 
     member this.walkUp: seq<UPath> =
         seq {
             let mutable current = this.parent
 
-            while not (current.isRoot && current.IsEmpty) do
+            while not (current.isRoot || current.IsEmpty) do
                 yield current
                 current <- current.parent
         }

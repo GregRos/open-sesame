@@ -6,30 +6,16 @@ module Shared.Zio.FileSystem
 open Zio
 open Zio.FileSystems
 open Shared.Zio.UPath
-open System.Text.RegularExpressions
-open FSharp.Text.RegexProvider
-open GlobExpressions
+
 
 type Disk() =
     inherit PhysicalFileSystem()
-
-type DriveLetterRegex = Regex< @"^(?<DriveLetter>[a-zA-Z]):[\\|/]" >
 
 type FileSystem with
     member this.entry(path: UPath) : FileSystemEntry = path |> string |> this.entry
 
     member this.entry(path: string) : FileSystemEntry =
-        DriveLetterRegex()
-            .TypedReplace(
-                path,
-                fun m ->
-                    let driveLetter = m.Groups.["DriveLetter"].Value.ToLowerInvariant()
-                    let driveLetter = $"/mnt/{driveLetter}/"
-                    driveLetter
-            )
-        |> UPath
-        |> (fun x -> x.ToAbsolute())
-        |> this.GetFileSystemEntry
+        path |> UPath |> this.GetFileSystemEntry
 
 type FileSystemEntry with
     member this.isRoot: bool = this.Path.isRoot
@@ -41,13 +27,13 @@ type FileSystemEntry with
     member this.go(path: string) : FileSystemEntry = this.go (UPath path)
 
     member this.go(path: UPath) : FileSystemEntry =
-        let newPath = this.Path / path
+        let newPath = UPath.Combine(this.Path, path)
         this.FileSystem.GetFileSystemEntry newPath
 
     member this.tryGo(path: string) : FileSystemEntry option = this.tryGo (UPath path)
 
     member this.tryGo(path: UPath) : FileSystemEntry option =
-        let newPath = this.Path / path
+        let newPath = UPath.Combine(this.Path, path)
 
         match this.FileSystem.TryGetFileSystemEntry newPath with
         | null -> None
@@ -88,7 +74,3 @@ type FileSystemEntry with
     member this.isChildOf(parent: UPath) : bool = this.Path.isIn parent
 
     member this.isDeepChildOf(parent: UPath) : bool = this.Path.isInDeep parent
-
-
-
-let a = UPath().entry (new PhysicalFileSystem())

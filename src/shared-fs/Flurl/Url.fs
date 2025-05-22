@@ -7,7 +7,8 @@ type Flurl.Url with
 
     member this.path(x: string) : Flurl.Url = this.Clone().AppendPathSegment(x)
 
-    member this.path(xs: string list) : Flurl.Url = this.Clone().AppendPathSegments(xs)
+    member this.path(xs: string list) : Flurl.Url =
+        this.Clone().AppendPathSegments(xs |> List.map box |> List.toArray)
 
     member this.query(x: string) : Flurl.Url =
         let clone = this.Clone()
