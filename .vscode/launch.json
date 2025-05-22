@@ -5,9 +5,9 @@
       "name": ".NET Launch FS",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build",
-      "program": "${workspaceFolder}/src/open-markdown/bin/Debug/net9.0-windows/open-markdown.exe",
-      "args": ["C:\\codegr\\__docs.vault\\Untitled.md"],
+      "preLaunchTask": "build (Debug)",
+      "program": "${workspaceFolder}/bin/open-markdown/Debug/net9.0-windows/open-markdown.exe",
+      "args": ["C:\\codegr\\omnea-kata\\README.md"],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
       "console": "integratedTerminal"

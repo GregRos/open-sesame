@@ -5,6 +5,17 @@
       "label": "build",
       "command": "dotnet",
       "type": "process",
+      "args": ["build", "${workspaceFolder}", "-c", "Release", "--no-restore"],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "build (Debug)",
+      "command": "dotnet",
+      "type": "process",
       "args": ["build", "${workspaceFolder}", "-c", "Debug", "--no-restore"],
       "problemMatcher": "$msCompile",
       "group": {

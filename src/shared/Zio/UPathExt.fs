@@ -14,11 +14,13 @@ type MntRootRegex = Regex< @"^/mnt/(?<DriveLetter>[a-zA-Z])/" >
 type UPath with
 
     member this.tryEntry(fs: IFileSystem) : FileSystemEntry option =
-        match fs.TryGetFileSystemEntry this with
+        match fs.TryGetFileSystemEntry this.norm with
         | null -> None
         | entry -> Some entry
 
     member this.entry(fs: IFileSystem) : FileSystemEntry = fs.GetFileSystemEntry this.norm
+
+    member this.name = this.GetName()
 
     member this.norm =
         DriveLetterRegex()

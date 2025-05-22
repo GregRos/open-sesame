@@ -6,6 +6,7 @@ module Shared.Zio.FileSystem
 open Zio
 open Zio.FileSystems
 open Shared.Zio.UPath
+open System.IO
 
 
 type Disk() =
@@ -19,6 +20,18 @@ type FileSystem with
 
 type FileSystemEntry with
     member this.isRoot: bool = this.Path.isRoot
+
+    member this.isSymLink: bool =
+        match this with
+        | :? FileEntry as file -> file.Attributes.HasFlag FileAttributes.ReparsePoint
+        | :? DirectoryEntry as dir -> dir.Attributes.HasFlag FileAttributes.ReparsePoint
+        | _ -> false
+
+    member this.tryLinkTarget =
+        match this with
+        | :? FileEntry as file -> File.ResolveLinkTarget(file.Path.winPath, true) |> Some
+        | :? DirectoryEntry as dir -> Directory.ResolveLinkTarget(dir.Path.winPath, true) |> Some
+        | _ -> None
 
     member this.walkUp =
         this.Path.walkUp
