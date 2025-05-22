@@ -20,3 +20,13 @@ type CreateProcess with
         let proc = new Process(StartInfo = startInfo)
 
         proc
+
+    member this.Start() =
+        try
+            let proc = this.Create()
+            proc.Start() |> ignore
+            logger.debug $"Started process: {this.path} {this.args}"
+            Some proc
+        with :? System.ComponentModel.Win32Exception as ex ->
+            logger.error $"Failed to start process: {this.path} {this.args} - {ex.Message}"
+            None

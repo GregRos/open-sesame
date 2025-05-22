@@ -16,7 +16,7 @@
     <Compile Include="src/Program.fs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\shared-fs\shared-fs.fsproj" />
+    <ProjectReference Include="..\shared\shared.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
