@@ -6,7 +6,8 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/src/open-obsidian/bin/Debug/net9.0/open-obsidian.exe",
+      "program": "${workspaceFolder}/src/open-markdown/bin/Debug/net9.0-windows/open-markdown.exe",
+      "args": ["C:\\codegr\\__docs.vault\\Untitled.md"],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
       "console": "integratedTerminal"

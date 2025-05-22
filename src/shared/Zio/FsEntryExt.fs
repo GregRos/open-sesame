@@ -32,6 +32,9 @@ type FileSystemEntry with
 
     member this.tryGo(path: string) : FileSystemEntry option = this.tryGo (UPath path)
 
+
+
+
     member this.tryGo(path: UPath) : FileSystemEntry option =
         let newPath = UPath.Combine(this.Path, path)
 

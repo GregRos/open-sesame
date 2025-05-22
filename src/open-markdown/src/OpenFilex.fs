@@ -7,12 +7,26 @@ open Zio
 open Flurl
 open Shared.Process
 open Shared.Logging
+open System.Windows.Input
 
 let logger = Loggers.CreateLogger "OpenFile"
 
+
+
+type OpenMode =
+    | NewWindow
+    | NewTab
+    | Default
+
+    override this.ToString() =
+        match this with
+        | NewWindow -> "window"
+        | NewTab -> "true"
+        | Default -> "false"
+
 type OpenObsidianUrl =
     | OpenVault of vault: UPath
-    | OpenFileInVault of vault: UPath * file: UPath
+    | OpenFileInVault of vault: UPath * file: UPath * openMode: OpenMode
 
     member this.Url =
         match this with
@@ -24,9 +38,12 @@ type OpenObsidianUrl =
 
             logger.debug $"OpenVault: {url}"
             url
-        | OpenFileInVault(vault, file) ->
+        | OpenFileInVault(vault, file, mode) ->
             let url =
-                let x = OpenVault(vault).Url.query {| filepath = file |> fun x -> x.winPath |}
+                let x =
+                    OpenVault(vault).Url.query
+                        {| filepath = file |> fun x -> x.winPath
+                           openmode = mode |}
 
                 x
 
@@ -47,7 +64,7 @@ type OpenFileCommand =
     | OpenObsidian of OpenObsidianUrl
     | OpenFile of OpenDefaultMarkdown
 
-    static member Create(target: UPath) =
+    static member Create(target: UPath, mode: OpenMode) =
         let target = target.norm
 
         if not target.IsAbsolute then
@@ -72,7 +89,7 @@ type OpenFileCommand =
                 let filePath = target.relativeTo vault.Path
                 logger.trace $"Relatived path {vault.Path} -> {filePath}"
 
-                let openObsidian = OpenFileInVault(vault.Path, filePath) |> OpenObsidian
+                let openObsidian = OpenFileInVault(vault.Path, filePath, mode) |> OpenObsidian
                 openObsidian
             | None ->
                 logger.trace $"No obsidian vault found for {target}, using default."

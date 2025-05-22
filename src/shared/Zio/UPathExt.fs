@@ -18,7 +18,7 @@ type UPath with
         | null -> None
         | entry -> Some entry
 
-    member this.entry(fs: IFileSystem) : FileSystemEntry = fs.GetFileSystemEntry this
+    member this.entry(fs: IFileSystem) : FileSystemEntry = fs.GetFileSystemEntry this.norm
 
     member this.norm =
         DriveLetterRegex()
